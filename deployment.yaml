@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: react-app
+  template:
+    metadata:
+      labels:
+        app: react-app
+    spec:
+      containers:
+        - name: react-app
+          image: Vijaygawate/gitops01:604ac3b39a717bbceb7e0386debaed67fd7857bb
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
